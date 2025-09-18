@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MedicalBot – Mobile</title>
+
+  <!-- Dialogflow Messenger -->
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+  <style>
+    /* Reset and layout */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+    }
+
+    /* Navigation bar */
+    nav {
+      background-color: #0077cc;         /* navbar color */
+      color: #fff;
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Centered logo */
+    .logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1rem 0;
+    }
+    .logo-container img {
+      max-width: 200px;
+      height: auto;
+    }
+
+    /* Dialogflow messenger */
+    df-messenger {
+      position: fixed;
+      top: 120px;              /* push down to make room for nav & logo */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 120px);
+      z-index: 9999;
+      font-size: 16px;
+    }
+
+    /* Optional: remove rounded corners & shadow */
+    df-messenger .df-messenger-wrapper {
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    @media (max-width: 600px) {
+      df-messenger {
+        top: 140px;            /* slightly more space on small screens */
+        height: calc(100% - 140px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav>
+    <span>ONCOVISION</span>
+    <a href="test.html">Scan MRI</a>
+  </nav>
+
+  <!-- Centered logo -->
+  <div class="logo-container">
+    <img src="logo.jpg" alt="MedicalBot Logo">
+  </div>
+
+  <!-- Dialogflow Chatbot -->
+  <df-messenger
+    chat-title="MedicalBot"
+    agent-id="7da64643-26d5-49f3-b11c-61b3bf86ecf7"
+    language-code="en"
+  >
+    <df-messenger-chat></df-messenger-chat>
+  </df-messenger>
+</body>
+</html>
